@@ -1,0 +1,502 @@
+/* --- Reset --- */
+body, h1, h2, h3, h4, h5, h6, p, ul, li, figure, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333333; /* Charcoal Gray */
+    background-color: #FAF9F6; /* Creamy Off-White */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #333333;
+}
+h1{
+  font-weight: 900;
+}
+h2{
+  font-weight: 700;
+}
+h3{
+  font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: #B76E79; /* Rose Gold (for links) */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #F5C8C8; /* Darker Blush (hover) */
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: 2px solid #B76E79; /* Rose Gold */
+    background-color: #FAF9F6; /* Creamy Off-White */
+    color: #333333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #F8E0E0; /* Soft Blush Pink */
+    border-color: #F5C8C8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below images */
+}
+
+/* --- General Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- Header --- */
+header {
+    background-color: #FAF9F6;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ensure header stays on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+/* --- Mobile Menu Styles (Mobile-First) --- */
+.menu-toggle {
+    display: block; /* Show hamburger by default */
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #333333;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 101;
+}
+
+.nav-links {
+  width: 100%;
+  background-color: #FAF9F6;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.nav-links ul {
+    display: none; /* Hide menu by default */
+    list-style: none;
+    text-align: left;
+}
+
+.nav-links li {
+    display: block;
+    margin: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-links li:last-child {
+    border-bottom: none;
+}
+
+.nav-links.active {
+    display: block;
+    max-height: 500px; /* For the animation */
+}
+
+/* --- Desktop Styles (Media Query) --- */
+@media (min-width: 1024px) {
+    .menu-toggle {
+        display: none; /* Hide hamburger on desktop */
+    }
+
+    .nav-links {
+      position: static; /* Reset positioning */
+      background-color: transparent; /* Reset background */
+      max-height: none; /* Remove max-height */
+      width: auto; /* Let content determine width*/
+
+    }
+
+    .nav-links ul {
+        display: flex; /* Use flexbox for horizontal layout */
+        justify-content: center; /* Center the links */
+        align-items: center; /* Vertically center */
+        text-align: center; /* Set text-align back to center */
+
+    }
+    header{
+      position: sticky; /*make the position sticky again*/
+    }
+
+    .nav-links li {
+        display: inline-block; /* Display links inline */
+        margin: 0 20px;    /* Add horizontal spacing */
+        padding: 0;      /* Remove padding */
+        border-bottom: none; /* Remove border */
+
+    }
+    nav ul li a {
+        font-weight: bold;
+        color: #333333;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        letter-spacing: 0.05em; /* Add some letter spacing for readability */
+    }
+    nav ul li a:hover {
+      color: #B76E79; /*use the rose-gold for hover effect*/
+    }
+}
+
+
+/* --- Hero Section --- */
+#hero {
+    background-color: #F8E0E0; /* Soft Blush Pink */
+    text-align: center;
+    padding: 100px 0;
+    position: relative; /* For parallax positioning */
+    overflow: hidden;   /* Hide overflowing parts of the parallax image */
+}
+
+#hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+    z-index: -1;  /* Place the image behind the text */
+    opacity: 0.7; /* Make the image slightly transparent */
+}
+
+#hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #333333;
+    position: relative; /* Ensure text is above the image */
+    z-index: 1;
+}
+
+#hero p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #444444;
+    position: relative; /* Ensure text is above the image */
+    z-index: 1;
+
+}
+
+/* --- About Section --- */
+#about {
+    background-color: #FAF9F6;
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 40px; /* Space between columns */
+    align-items: center; /* Vertically center content */
+}
+
+#about-image {
+    text-align: center; /* Center the image within its grid area */
+}
+
+#about-text {
+    padding: 20px;
+}
+
+#about h2 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+#about p{
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #555555;
+}
+
+
+/* --- Founder Section --- */
+
+#founder {
+    background-color: #F8E0E0; /*soft blush pink*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+
+}
+
+#founder-image{
+    border-radius: 50%;  /*make the image round*/
+    overflow: hidden;  /*ensures image stays within the circle*/
+    width: 300px; /* Set a fixed width */
+    height: 300px;/* Set a fixed height */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+ #founder-image img {
+    width: 100%; /* Make the image fill the circular container */
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the circle */
+}
+
+#founder-text{
+    padding: 20px;
+}
+
+#founder-text h2{
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+#founder-text p{
+  margin-bottom: 10px;
+}
+
+/* --- Featured Courses Section --- */
+#featured-courses {
+  background-color: #faf9f6;
+}
+
+#featured-courses h2{
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  text-align: center;
+}
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.course-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide overflowing content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transitions */
+
+}
+
+.course-card:hover{
+    transform: translateY(-5px); /* Lift the card slightly on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.course-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure images cover the area nicely */
+}
+.course-card-content {
+    padding: 20px;
+}
+.course-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 600;
+}
+.course-card p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* --- Career Options Section --- */
+#career-options {
+    background-color: #F8E0E0; /*soft blush pink color*/
+
+}
+
+#career-options h2{
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+.career-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min width as needed */
+    gap: 20px;
+    padding: 20px;
+}
+
+.career-option{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.career-option:hover{
+    transform: scale(1.05); /* Slightly enlarge on hover */
+
+}
+
+.career-option h3{
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.career-option p{
+    color: #555;
+    font-size: 1em;
+    line-height: 1.4;
+}
+/* --- Contact Section --- */
+
+#contact {
+    background-color: #FAF9F6;
+    text-align: center;
+}
+#contact h2{
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#contact p{
+  margin-bottom: 10px;
+}
+.contact-info {
+    margin-bottom: 30px;
+}
+.contact-info p {
+    margin: 10px 0;
+    display: flex;           /* Use flexbox for easy alignment */
+    align-items: center;    /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+}
+
+/*ICON*/
+.contact-info i {
+  margin-right: 10px;      /* Space between icon and text */
+  color: #B76E79;       /* Rose gold color for icons */
+  font-size: 1.2em;       /* Adjust size as needed */
+}
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+     font-family: 'Montserrat', sans-serif; /* Use the correct font */
+    font-size: 1em;
+}
+.form-group textarea {
+    height: 150px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333333;
+    color: #fff;
+}
+footer p{
+  color:#fff;
+}
+
+/* --- Courses Page Specific Styles --- */
+#all-courses {
+    background-color: #FAF9F6;
+}
+
+#all-courses h1{
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 3em;
+}
+.courses-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.course-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-item:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0, 0.1);
+}
+.course-item h3 {
+    font-size: 1.25em;
+    margin-bottom: 10px;
+    color: #333;
+}
+.course-item p {
+    color: #555;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+.course-item strong {
+    font-weight: bold;
+}
+
+.back-to-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #B76E79; /* Use rose gold */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s;
+}
+
+.back-to-home:hover {
+    background-color: #F5C8C8; /* Darker blush on hover */
+    color: #333;
+}
