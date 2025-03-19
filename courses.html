@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - Beauty School</title>
+    <style>
+        /* --- (Same CSS as index.html - Minimize Repetition) --- */
+        /* You can copy the ENTIRE <style> block from index.html here */
+        /* OR, better yet, create a separate CSS file (e.g., styles.css) */
+        /* and link to it in BOTH HTML files: */
+        /* <link rel="stylesheet" href="styles.css"> */
+
+         body, h1, h2, h3, h4, h5, h6, p, ul, li, figure, blockquote {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333333; /* Charcoal Gray */
+            background-color: #FAF9F6; /* Creamy Off-White */
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #333333;
+        }
+        h1{
+          font-weight: 900;
+        }
+        h2{
+          font-weight: 700;
+        }
+        h3{
+          font-weight: 400;
+        }
+        a {
+            text-decoration: none;
+            color: #B76E79; /* Rose Gold (for links) */
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #F5C8C8; /* Darker Blush (hover) */
+        }
+        button {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: 2px solid #B76E79; /* Rose Gold */
+            background-color: #FAF9F6; /* Creamy Off-White */
+            color: #333333;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #F8E0E0; /* Soft Blush Pink */
+            border-color: #F5C8C8;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Remove extra space below images */
+        }
+
+        /* --- General Layout --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: #FAF9F6;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100; /* Ensure header stays on top */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+        nav ul li a {
+            font-weight: bold;
+            color: #333333;
+            text-transform: uppercase;
+            font-size: 0.9em;
+             letter-spacing: 0.05em; /* Add some letter spacing for readability */
+        }
+        nav ul li a:hover {
+          color: #B76E79; /*use the rose-gold for hover effect*/
+        }
+
+        /* --- Courses Page Specific Styles --- */
+        #all-courses {
+            background-color: #FAF9F6;
+        }
+
+        #all-courses h1{
+          margin-bottom: 20px;
+          text-align: center;
+          font-size: 3em;
+        }
+        .courses-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .course-item {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .course-item:hover{
+          transform: translateY(-5px);
+          box-shadow: 0 4px 8px rgba(0,0,0, 0.1);
+        }
+        .course-item h3 {
+            font-size: 1.25em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .course-item p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+        .course-item strong {
+            font-weight: bold;
+        }
+
+        /* --- Footer --- */
+          footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333333;
+            color: #fff;
+        }
+        footer p{
+          color:#fff;
+        }
+        .back-to-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #B76E79; /* Use rose gold */
+            color: white;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s;
+        }
+
+        .back-to-home:hover {
+            background-color: #F5C8C8; /* Darker blush on hover */
+            color: #333;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+ <header>
+        <nav class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#founder">Founder</a></li>
+                <li><a href="index.html#featured-courses">Courses</a></li>
+                <li><a href="index.html#career-options">Careers</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="all-courses">
+            <div class="container">
+                <h1>Our Courses</h1>
+                <div class="courses-list">
+                    <div class="course-item">
+                        <h3>Course Title 1</h3>
+                        <p><strong>Duration:</strong> 12 Weeks</p>
+                        <p><strong>Tuition:</strong> $1,200</p>
+                        <p>Description of course 1.  Include all the details here.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 2</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 3</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 4</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 5</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 6</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 7</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 8</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 9</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 10</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 11</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 12</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 13</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 14</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+                    <div class="course-item">
+                        <h3>Course Title 15</h3>
+                        <p><strong>Duration:</strong> 8 Weeks</p>
+                        <p><strong>Tuition:</strong> $800</p>
+                        <p>Description of course 2.</p>
+                    </div>
+
+                </div>
+                <a href="index.html" class="back-to-home">Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Beauty School. All rights reserved.</p>
+    </footer>
+    <script>
+      // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetHref = this.getAttribute('href');
+
+                // Check if the target is on the current page or a different page
+                if (targetHref.startsWith('#')) {
+                  // Scroll smoothly within the current page
+                  document.querySelector(targetHref).scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                } else {
+                  // Navigate to the other page
+                  window.location.href = targetHref;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
